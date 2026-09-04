@@ -33,9 +33,16 @@ function assertHttps(endpoint) {
   return u.toString();
 }
 
+async function subtle() {
+  // Node 18 has no global crypto (unflagged in 19); browsers, workers and Node 20+ do.
+  if (globalThis.crypto && globalThis.crypto.subtle) return globalThis.crypto.subtle;
+  const mod = await import("node:crypto");
+  return mod.webcrypto.subtle;
+}
+
 async function sha256hex(text) {
   const data = new TextEncoder().encode(text);
-  const digest = await crypto.subtle.digest("SHA-256", data);
+  const digest = await (await subtle()).digest("SHA-256", data);
   return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
