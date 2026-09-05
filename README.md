@@ -98,7 +98,13 @@ the same register and can fail on it: https://gate.horizonshield.dev/self
 
 Two files on your side and nothing to ask anyone: a `compensation` block in your agent card
 (`paid_by`, `referral_fee`, `listing_fee`, filled truthfully; the content is not judged, only its absence) and
-`/.well-known/mcp-conduct.json` on your origin with `{"allow_tool_call": true}`. Then `POST /watch` once, or set
-`join_register` in the CI step: https://github.com/ogasurfproject-jpg/mcp-conduct-action
+`/.well-known/mcp-conduct.json` on your origin with `{"allow_tool_call": true}`. Then ask for a row once:
+
+```
+curl -s -X POST https://gate.horizonshield.dev/watch -H 'content-type: application/json' -d '{"endpoint":"https://your-server/mcp"}'
+```
+
+To measure on every push and recompute the verdict hash on your own runner, three lines of CI:
+https://github.com/ogasurfproject-jpg/wedjat-check-action
 
 MIT. The HORIZONs Co., Ltd., Hiratsuka, Japan.

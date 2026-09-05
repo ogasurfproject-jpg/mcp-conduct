@@ -1,6 +1,6 @@
 {
   "name": "mcp-conduct",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Check an MCP server's conduct before an agent connects to it. Reads the MCP Verification Gate (free, no key), recomputes verdict hashes locally, and applies a policy you choose. Zero dependencies.",
   "type": "module",
   "main": "./src/index.js",
@@ -11,14 +11,31 @@
     }
   },
   "types": "./src/index.d.ts",
-  "files": ["src", "README.md", "LICENSE"],
-  "engines": { "node": ">=18" },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "test": "node --test"
   },
-  "keywords": ["mcp", "model-context-protocol", "agent", "verification", "conduct", "a2a", "trust"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "agent",
+    "verification",
+    "conduct",
+    "a2a",
+    "trust"
+  ],
   "author": "The HORIZONs Co., Ltd.",
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/ogasurfproject-jpg/mcp-conduct.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ogasurfproject-jpg/mcp-conduct.git"
+  },
   "homepage": "https://gate.horizonshield.dev/spec"
 }

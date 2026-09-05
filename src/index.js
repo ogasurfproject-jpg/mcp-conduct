@@ -88,7 +88,7 @@ export function conductGate(options) {
     cacheTtlMs: 5 * 60 * 1000,
     fetch: globalThis.fetch,
     log: (msg) => console.warn(msg),
-    userAgent: "mcp-conduct/0.1.0 (+https://github.com/ogasurfproject-jpg/mcp-conduct)"
+    userAgent: "mcp-conduct/0.1.1 (+https://github.com/ogasurfproject-jpg/mcp-conduct)"
   }, options || {});
   if (!POLICIES.includes(opts.policy)) throw new TypeError("mcp-conduct: unknown policy " + JSON.stringify(opts.policy) + "; one of " + POLICIES.join(", "));
   if (typeof opts.fetch !== "function") throw new TypeError("mcp-conduct: no fetch available; pass options.fetch");
